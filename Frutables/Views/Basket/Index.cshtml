@@ -1,0 +1,46 @@
+﻿@using Frutables.ViewModel.basketVMs
+@model List<BasketDetailVM>
+
+<div class="container">
+@*     @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">Your basket is empty.</div>
+    }
+    else
+    {
+        {
+            decimal totalPriceSum = Model.Sum(m => m.TotalPrice);
+        } *@
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Count</th>
+                    <th scope="col">TotalPrice</th>
+                    <th scope="col">Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>
+                            <img width="100" height="100" src="@Url.Content($"~/img/{(item.Image ?? "placeholder.png")}")" alt="@item.Name" />
+                        </th>
+                        <td>@item.Name</td>
+                        <td>@item.Category</td>
+                        <td>@item.Price azn</td>
+                        <td>@item.Count</td>
+                        <td>@item.TotalPrice</td>
+                        <td><button class="btn btn-danger">Delete</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <h5>azn</h5>
+    }
+</div>
